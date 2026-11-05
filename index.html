@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark" style="font-size: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Estação 1: Dra. Eliza Maria - Consciência Negra na Ciência</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FEF3C7',
+                            200: '#FDE68A',
+                            300: '#FDE047',
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                            700: '#B45309',
+                            800: '#92400E',
+                            900: '#78350F',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ESTILOS DE MODO ALTO CONTRASTE */
+        .high-contrast {
+            background-color: #000000 !important;
+            color: #FFFF00 !important;
+        }
+        .high-contrast * {
+            background-color: #000000 !important;
+            color: #FFFF00 !important;
+            border-color: #FFFF00 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+        .high-contrast button, .high-contrast article, .high-contrast div {
+            outline: 2px solid #FFFF00 !important;
+        }
+
+        /* BRILHOS NÉON E DOURADO */
+        .neon-gold-text {
+            text-shadow: 0 0 12px rgba(245, 158, 11, 0.6),
+                         0 0 25px rgba(217, 119, 6, 0.4);
+        }
+
+        .dark .neon-gold-text {
+            text-shadow: 0 0 14px rgba(245, 158, 11, 0.7),
+                         0 0 30px rgba(217, 119, 6, 0.5);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        .gold-glow-lg {
+            box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.6);
+        }
+
+        /* ANIMAÇÕES DE PULSO PARA ATRAIR ATENÇÃO */
+        @keyframes ringPulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.8); transform: scale(1); }
+            50% { box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); transform: scale(1.03); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); transform: scale(1); }
+        }
+
+        .node-pulse {
+            animation: ringPulse 2.5s infinite;
+        }
+
+        /* ANIMAÇÃO DO EQUALIZADOR DE VOZ */
+        .wave-bar {
+            animation: soundWave 1.2s ease-in-out infinite alternate;
+        }
+        .wave-bar:nth-child(1) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(2) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.5s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes soundWave {
+            0% { height: 4px; }
+            100% { height: 26px; }
+        }
+
+        /* MODAL ANIMATION */
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-modal {
+            animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* SCROLLBAR MODERNA */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070a12; }
+        ::-webkit-scrollbar-thumb { background: #d97706; border-radius: 4px; }
+
+        /* MODO DIA / LIGHT MODE CUSTOM ENHANCEMENTS */
+        html:not(.dark) ::-webkit-scrollbar-track { background: #f1f5f9; }
+        html:not(.dark) ::-webkit-scrollbar-thumb { background: #b45309; }
+        
+        html:not(.dark) .light-card-bg {
+            background-color: #ffffff !important;
+            border-color: #cbd5e1 !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        /* IMPRESSÃO PDF LIMPA */
+        @media print {
+            body { background: #ffffff !important; color: #000000 !important; }
+            header, main, section, footer, #mathCanvas, #toast, .vw-plugin-top-wrapper, [vw], .no-print { display: none !important; }
+            .fixed.inset-0:not(#badgeModal) { display: none !important; }
+            #badgeModal {
+                position: absolute !important; left: 0 !important; top: 0 !important;
+                width: 100% !important; height: auto !important; display: block !important;
+                background: none !important; backdrop-filter: none !important; padding: 0 !important;
+            }
+            #badgeModal .absolute.inset-0, #badgeModal button, #badgeModal input, #badgeModal p, #badgeModal h3 { display: none !important; }
+            #badgePreviewCard {
+                display: block !important; width: 100% !important; max-width: 650px !important;
+                margin: 30px auto !important; border: 6px solid #d97706 !important;
+                background: #0f172a !important; color: #ffffff !important; box-shadow: none !important;
+                border-radius: 24px !important; padding: 40px !important; page-break-inside: avoid;
+            }
+            #badgePreviewCard * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 dark:bg-slate-950 text-slate-100 dark:text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-amber-500 selection:text-slate-950 transition-colors duration-300 font-sans">
+
+    <!-- CANVAS ANIMADO DE PARTÍCULAS MATEMÁTICAS (FLUTUANTE DE ATRAÇÃO) -->
+    <canvas id="mathCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40 dark:opacity-60"></canvas>
+
+    <!-- BANNER FLUTUANTE DE MODO APRESENTAÇÃO TV (AUTO-PLAY) -->
+    <div id="tvAutoPlayBanner" class="fixed top-14 left-1/2 -translate-x-1/2 z-30 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 text-slate-950 font-black px-4 py-2 rounded-full shadow-2xl text-xs flex items-center gap-2 border border-amber-300 hidden animate-bounce">
+        <i class="fa-solid fa-play animate-pulse"></i>
+        <span>MODO AUTO-PLAY TV ATIVO (Troca automática a cada 15s)</span>
+        <button onclick="stopAutoPlayTV()" class="ml-2 bg-slate-950 text-amber-400 px-2.5 py-0.5 rounded-full text-[10px] font-bold hover:bg-slate-800">Parar</button>
+    </div>
+
+    <!-- BARRA SUPERIOR FIXA (ACESSIBILIDADE, TEMA, EDUCADORES, LO-FI SYNTH E MODO TV) -->
+    <header class="sticky top-0 z-40 bg-slate-900/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-amber-500/30 px-3 py-2.5 shadow-xl transition-colors duration-300">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
+            
+            <!-- Logo / Identificador da Estação -->
+            <div class="flex items-center gap-2">
+                <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 font-black flex items-center justify-center text-base shadow-md">
+                    01
+                </span>
+                <div>
+                    <span class="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight block">
+                        Estação Dra. Eliza Maria
+                    </span>
+                    <span class="text-[10px] text-amber-600 dark:text-amber-400 font-semibold hidden sm:block">
+                        Consciência Negra na Ciência
+                    </span>
+                </div>
+            </div>
+
+            <!-- Controles de Acessibilidade (Zoom de Texto) -->
+            <div class="flex items-center gap-1 bg-slate-200/80 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-300 dark:border-slate-700/60" role="group" aria-label="Acessibilidade de texto">
+                <button onclick="changeFontSize(-5)" title="Diminuir texto" aria-label="Diminuir tamanho do texto" class="w-7 h-7 rounded-lg bg-slate-300 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-amber-500 hover:text-slate-950 font-bold text-xs flex items-center justify-center transition-colors">
+                    A-
+                </button>
+                <button onclick="resetFontSize()" title="Restaurar tamanho do texto" aria-label="Restaurar tamanho do texto" class="px-1.5 h-7 rounded-lg bg-slate-300 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-amber-500 hover:text-slate-950 font-bold text-xs flex items-center justify-center transition-colors">
+                    A
+                </button>
+                <button onclick="changeFontSize(5)" title="Aumentar texto" aria-label="Aumentar tamanho do texto" class="w-7 h-7 rounded-lg bg-slate-300 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-amber-500 hover:text-slate-950 font-bold text-xs flex items-center justify-center transition-colors">
+                    A+
+                </button>
+            </div>
+
+            <!-- Botões de Ação Rápida (Educadores, Música Lo-Fi, TV Auto-Play, QR Code TV, Tema) -->
+            <div class="flex items-center gap-1.5">
+                
+                <!-- Botão Música Lo-Fi Synth Ambient (Web Audio API) -->
+                <button id="ambientMusicBtn" onclick="toggleAmbientMusic()" title="Alternar Música de Fundo Lo-Fi" aria-label="Música de Fundo Lo-Fi Ambient" class="px-2.5 h-8 rounded-xl bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40 hover:bg-indigo-600 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-music text-xs"></i>
+                    <span class="hidden md:inline">Trilha Ambient</span>
+                </button>
+
+                <!-- Botão Educadores (Aba Pedagógica BNCC) -->
+                <button onclick="openPedagogicalModal()" title="Recursos Pedagógicos para Professores" aria-label="Aba Pedagógica BNCC" class="px-2.5 h-8 rounded-xl bg-purple-600/20 text-purple-700 dark:text-purple-300 border border-purple-500/40 hover:bg-purple-600 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-graduation-cap text-xs"></i>
+                    <span class="hidden lg:inline">Para Educadores</span>
+                </button>
+
+                <!-- Botão Quiosque Auto-Play TV -->
+                <button id="autoPlayTvBtn" onclick="toggleAutoPlayTV()" title="Apresentação Automática na TV" aria-label="Auto-Play TV" class="px-2.5 h-8 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 font-extrabold text-xs flex items-center gap-1 shadow-md hover:brightness-110 active:scale-95 transition-all">
+                    <i class="fa-solid fa-circle-play text-xs"></i>
+                    <span class="hidden xl:inline">Auto-Play TV</span>
+                </button>
+
+                <!-- Botão QR Code TV -->
+                <button onclick="toggleQRCodeModal()" title="Projetar QR Code na TV" aria-label="Projetar QR Code na TV" class="px-2.5 sm:px-3 h-8 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-extrabold text-xs flex items-center gap-1.5 shadow-md hover:brightness-110 active:scale-95 transition-all">
+                    <i class="fa-solid fa-qrcode text-xs"></i>
+                    <span class="hidden md:inline">QR Code TV</span>
+                </button>
+
+                <!-- Alternar Modo TV / Grid Layout -->
+                <button id="tvModeBtn" onclick="toggleTVLayout()" title="Modo TV / Grid Feira" aria-label="Alternar Layout TV" class="px-2.5 h-8 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-amber-400 border border-slate-300 dark:border-slate-700 hover:bg-amber-500 hover:text-slate-950 text-xs font-bold flex items-center gap-1 transition-colors">
+                    <i class="fa-solid fa-tv text-xs"></i>
+                    <span id="tvModeText" class="hidden xl:inline">Grid TV</span>
+                </button>
+
+                <!-- Alternar Modo Claro / Escuro -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" title="Modo Claro/Escuro" aria-label="Alternar modo claro e escuro" class="px-2.5 h-8 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 hover:bg-amber-500 hover:text-slate-950 text-xs font-bold flex items-center gap-1 transition-colors">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                    <span id="themeText" class="hidden sm:inline">Escuro</span>
+                </button>
+
+                <!-- Alto Contraste -->
+                <button onclick="toggleHighContrast()" title="Alto Contraste" aria-label="Ativar Alto Contraste" class="w-8 h-8 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-amber-400 border border-slate-300 dark:border-slate-700 hover:bg-amber-500 hover:text-slate-950 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-circle-half-stroke text-xs"></i>
+                </button>
+
+                <!-- Fullscreen -->
+                <button onclick="toggleFullScreen()" title="Modo Tela Cheia" aria-label="Alternar modo tela cheia" class="w-8 h-8 rounded-xl bg-amber-500 text-slate-950 hover:bg-amber-400 flex items-center justify-center transition-transform active:scale-90 font-bold shadow-md">
+                    <i id="fsIcon" class="fa-solid fa-expand text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div id="mainContainer" class="relative z-10 w-full max-w-2xl lg:max-w-6xl mx-auto px-4 py-6 flex-grow flex flex-col justify-between transition-all duration-300">
+        
+        <!-- BARRA DE PROGRESSO DA JORNADA -->
+        <section class="mb-6 bg-slate-900/90 dark:bg-slate-900/90 light-card-bg p-4 rounded-2xl border border-amber-500/30 backdrop-blur-md shadow-lg transition-colors">
+            <div class="flex items-center justify-between text-xs font-bold mb-2">
+                <span class="text-amber-600 dark:text-amber-400 flex items-center gap-1.5 uppercase tracking-wider">
+                    <i class="fa-solid fa-compass animate-spin" style="animation-duration: 10s;"></i> Progresso do Visitante
+                </span>
+                <span id="progressText" class="text-amber-700 dark:text-amber-300 font-mono">0 / 4 Marcos Visitados</span>
+            </div>
+            <div class="w-full h-3.5 bg-slate-200 dark:bg-slate-950 rounded-full overflow-hidden border border-slate-300 dark:border-slate-800 p-0.5">
+                <div id="progressBar" class="h-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 rounded-full w-0 transition-all duration-500 shadow-[0_0_12px_rgba(245,158,11,0.8)]"></div>
+            </div>
+            <p id="progressHint" class="text-[11px] text-slate-600 dark:text-slate-400 mt-2 text-center font-medium">
+                Clique nos 4 marcos históricos para liberar seu Crachá de Guardião da Memória!
+            </p>
+        </section>
+
+        <!-- CABEÇALHO HERO -->
+        <section class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-700 dark:text-amber-300 text-xs font-extrabold uppercase tracking-widest mb-3 shadow-sm">
+                <i class="fa-solid fa-crown text-amber-500"></i>
+                <span>Feira da Consciência Negra • Ciência e Memória</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3">
+                Dra. Eliza Maria: <br class="sm:hidden">
+                <span class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 dark:from-amber-200 dark:via-amber-400 dark:to-amber-600 bg-clip-text text-transparent neon-gold-text">
+                    A Matemática Tem Cor e História
+                </span>
+            </h1>
+
+            <p class="text-xs sm:text-base text-slate-700 dark:text-slate-300 font-medium max-w-xl mx-auto leading-relaxed">
+                Primeira mulher negra doutora em Matemática do Brasil <span class="text-amber-600 dark:text-amber-400 font-bold whitespace-nowrap">(1944–2025)</span>
+            </p>
+        </section>
+
+        <!-- NOVO RECURSO DE ALTO IMPACTO: MINI-SIMULADOR INTERATIVO "ÁLGEBRAS NÃO-ASSOCIATIVAS" -->
+        <section class="mb-8 bg-gradient-to-r from-amber-950/80 via-slate-900 to-amber-950/80 dark:from-amber-950/80 dark:via-slate-900 dark:to-amber-950/80 light-card-bg border-2 border-amber-500/50 p-5 rounded-3xl shadow-xl backdrop-blur-md relative overflow-hidden transition-all">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex-1 text-center md:text-left">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-extrabold uppercase tracking-wider mb-2 border border-amber-500/30">
+                        <i class="fa-solid fa-flask-vial"></i> Experimento Didático Interativo
+                    </span>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-white">
+                        O que Dra. Eliza pesquisou na França?
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-1">
+                        Descubra na prática o fascinante mundo das <strong>Álgebras Não-Associativas</strong>, onde a ordem dos parênteses altera completamente o resultado final!
+                    </p>
+                </div>
+                <button onclick="openSimulatorModal()" class="w-full md:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-shapes text-base"></i>
+                    <span>Abrir Simulador Interativo</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- LINHA DO TEMPO INTERATIVA (MODO VERTICAL SMARTPHONE / MODO HORIZONTAL TV) -->
+        <main id="timelineWrapper" class="relative mb-8" aria-label="Linha do Tempo Interativa">
+            
+            <!-- Linha vertical dourada (visível no layout mobile/padrão) -->
+            <div id="verticalLine" class="absolute left-6 sm:left-8 top-6 bottom-6 w-1 bg-gradient-to-b from-amber-500 via-amber-400 to-amber-600 rounded-full shadow-[0_0_12px_rgba(245,158,11,0.6)]"></div>
+
+            <!-- Grid responsivo ajustável para Celular / Notebook / Smart TV -->
+            <div id="timelineContainer" class="space-y-5 lg:space-y-0 relative transition-all duration-300">
+
+                <!-- MARCO 1 (1967) -->
+                <article onclick="openModal(0)" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') openModal(0)" aria-label="Marco 1: 1967 - Graduação na UFBA" class="timeline-item group cursor-pointer flex items-start gap-3 sm:gap-5 transition-all duration-300 active:scale-[0.98]">
+                    <div id="node-0" class="relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-slate-100 dark:bg-slate-900 border-2 border-amber-500 flex flex-col items-center justify-center shrink-0 shadow-lg text-amber-600 dark:text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors node-pulse">
+                        <i class="fa-solid fa-graduation-cap text-base sm:text-xl"></i>
+                        <span class="text-[10px] sm:text-xs font-extrabold leading-none mt-1">1967</span>
+                    </div>
+
+                    <div class="flex-1 bg-white/90 dark:bg-slate-900/90 light-card-bg border-2 border-slate-200 dark:border-slate-800 rounded-2xl p-4.5 shadow-md group-hover:border-amber-500/60 transition-all duration-300 backdrop-blur-sm">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span class="text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-[10px]"></i> UFBA • Salvador
+                            </span>
+                            <span id="badge-status-0" class="text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold">Pendente</span>
+                        </div>
+                        <h2 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
+                            Graduação e Barreiras Iniciais
+                        </h2>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-1">
+                            Formou-se em Matemática pela UFBA em 1967...
+                        </p>
+                        <div class="mt-3 flex items-center text-xs font-bold text-amber-600 dark:text-amber-400">
+                            <i class="fa-solid fa-volume-high mr-1.5 text-[11px]"></i>
+                            <span>Toque para ver & ouvir</span>
+                            <i class="fa-solid fa-chevron-right ml-auto text-[10px]"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MARCO 2 (1977) -->
+                <article onclick="openModal(1)" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') openModal(1)" aria-label="Marco 2: 1977 - Doutorado na França" class="timeline-item group cursor-pointer flex items-start gap-3 sm:gap-5 transition-all duration-300 active:scale-[0.98]">
+                    <div id="node-1" class="relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-slate-100 dark:bg-slate-900 border-2 border-amber-500 flex flex-col items-center justify-center shrink-0 shadow-lg text-amber-600 dark:text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors node-pulse">
+                        <i class="fa-solid fa-earth-americas text-base sm:text-xl"></i>
+                        <span class="text-[10px] sm:text-xs font-extrabold leading-none mt-1">1977</span>
+                    </div>
+
+                    <div class="flex-1 bg-white/90 dark:bg-slate-900/90 light-card-bg border-2 border-slate-200 dark:border-slate-800 rounded-2xl p-4.5 shadow-md group-hover:border-amber-500/60 transition-all duration-300 backdrop-blur-sm">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span class="text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                                <i class="fa-solid fa-building-columns text-[10px]"></i> Montpellier • França
+                            </span>
+                            <span id="badge-status-1" class="text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold">Pendente</span>
+                        </div>
+                        <h2 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
+                            1ª Doutora Negra em Matemática
+                        </h2>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-1">
+                            Doutorado na França sobre Álgebras Não-Associativas...
+                        </p>
+                        <div class="mt-3 flex items-center text-xs font-bold text-amber-600 dark:text-amber-400">
+                            <i class="fa-solid fa-volume-high mr-1.5 text-[11px]"></i>
+                            <span>Toque para ver & ouvir</span>
+                            <i class="fa-solid fa-chevron-right ml-auto text-[10px]"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MARCO 3 (1984–1988) -->
+                <article onclick="openModal(2)" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') openModal(2)" aria-label="Marco 3: 1984 a 1988 - Liderança Acadêmica" class="timeline-item group cursor-pointer flex items-start gap-3 sm:gap-5 transition-all duration-300 active:scale-[0.98]">
+                    <div id="node-2" class="relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-slate-100 dark:bg-slate-900 border-2 border-amber-500 flex flex-col items-center justify-center shrink-0 shadow-lg text-amber-600 dark:text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors node-pulse">
+                        <i class="fa-solid fa-chalkboard-user text-base sm:text-xl"></i>
+                        <span class="text-[10px] sm:text-xs font-extrabold leading-none mt-1">1984</span>
+                    </div>
+
+                    <div class="flex-1 bg-white/90 dark:bg-slate-900/90 light-card-bg border-2 border-slate-200 dark:border-slate-800 rounded-2xl p-4.5 shadow-md group-hover:border-amber-500/60 transition-all duration-300 backdrop-blur-sm">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span class="text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                                <i class="fa-solid fa-user-shield text-[10px]"></i> Vice-Diretora IME-UFBA
+                            </span>
+                            <span id="badge-status-2" class="text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold">Pendente</span>
+                        </div>
+                        <h2 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
+                            Docência e Liderança Acadêmica
+                        </h2>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-1">
+                            Liderou pesquisas e formou gerações de novos estudantes...
+                        </p>
+                        <div class="mt-3 flex items-center text-xs font-bold text-amber-600 dark:text-amber-400">
+                            <i class="fa-solid fa-volume-high mr-1.5 text-[11px]"></i>
+                            <span>Toque para ver & ouvir</span>
+                            <i class="fa-solid fa-chevron-right ml-auto text-[10px]"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MARCO 4 (2025+) -->
+                <article onclick="openModal(3)" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') openModal(3)" aria-label="Marco 4: 2025 em diante - Legado Vivo" class="timeline-item group cursor-pointer flex items-start gap-3 sm:gap-5 transition-all duration-300 active:scale-[0.98]">
+                    <div id="node-3" class="relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-slate-100 dark:bg-slate-900 border-2 border-amber-500 flex flex-col items-center justify-center shrink-0 shadow-lg text-amber-600 dark:text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors node-pulse">
+                        <i class="fa-solid fa-infinity text-base sm:text-xl"></i>
+                        <span class="text-[10px] sm:text-xs font-extrabold leading-none mt-1">2025+</span>
+                    </div>
+
+                    <div class="flex-1 bg-white/90 dark:bg-slate-900/90 light-card-bg border-2 border-slate-200 dark:border-slate-800 rounded-2xl p-4.5 shadow-md group-hover:border-amber-500/60 transition-all duration-300 backdrop-blur-sm">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span class="text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                                <i class="fa-solid fa-seedling text-[10px]"></i> Legado Vivo
+                            </span>
+                            <span id="badge-status-3" class="text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold">Pendente</span>
+                        </div>
+                        <h2 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
+                            Memória Viva na Ciência
+                        </h2>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 mt-1">
+                            Programa de Iniciação Científica Eliza Maria no IME-UFBA...
+                        </p>
+                        <div class="mt-3 flex items-center text-xs font-bold text-amber-600 dark:text-amber-400">
+                            <i class="fa-solid fa-volume-high mr-1.5 text-[11px]"></i>
+                            <span>Toque para ver & ouvir</span>
+                            <i class="fa-solid fa-chevron-right ml-auto text-[10px]"></i>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- SEÇÃO DE GAMIFICAÇÃO & CRACHÁ -->
+        <section class="mb-8 p-5 sm:p-6 rounded-3xl bg-white/90 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-900 dark:to-amber-950/40 light-card-bg border-2 border-amber-500/40 shadow-xl relative overflow-hidden text-center gold-glow transition-all">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-extrabold mb-2 border border-amber-500/40">
+                <i class="fa-solid fa-gamepad text-amber-500"></i> Desafio Interativo da Estação
+            </div>
+
+            <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white mb-1.5">
+                Quiz & Crachá Digital de Guardião
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mb-5 max-w-lg mx-auto">
+                Responda às 3 perguntas sobre a Dra. Eliza Maria e emita seu <strong>Crachá Personalizado</strong> com QR Code e download em foto!
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                <button onclick="openQuizModal()" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-question text-base"></i>
+                    <span>Iniciar Mini-Quiz</span>
+                </button>
+
+                <button onclick="openBadgeModal()" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 text-amber-700 dark:text-amber-300 border border-amber-500/40 font-bold text-xs sm:text-sm hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-id-badge text-amber-500 text-base"></i>
+                    <span>Gerar Crachá Digital</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- RODAPÉ DA ESTAÇÃO -->
+        <footer class="text-center pt-4 border-t border-slate-300 dark:border-slate-800 transition-colors">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+                <button onclick="toggleQRCodeModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/40 font-bold text-xs hover:bg-amber-500 hover:text-slate-950 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-qrcode text-amber-500"></i> Projetar QR Code na TV
+                </button>
+                <button onclick="shareStation()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-200 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-bold text-xs hover:bg-slate-300 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-share-nodes text-amber-500"></i> Compartilhar Link da Estação
+                </button>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 font-medium">
+                Feira Escolar do Dia da Consciência Negra • Projeto Educacional Interativo
+            </p>
+        </footer>
+    </div>
+
+    <!-- MODAL 1: MARCO HISTÓRICO COM LEITOR DE VOZ NATIVO -->
+    <div id="timelineModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/85 backdrop-blur-md hidden">
+        <div class="absolute inset-0" onclick="closeModal()"></div>
+        <div class="relative w-full max-w-lg bg-white dark:bg-slate-900 border-2 border-amber-500/60 rounded-3xl p-6 shadow-2xl gold-glow-lg z-10 animate-modal overflow-hidden max-h-[90vh] flex flex-col justify-between transition-colors">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600"></div>
+
+            <div class="flex items-start justify-between gap-3 mb-3">
+                <div>
+                    <span id="modalBadge" class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-extrabold border border-amber-500/30 mb-2">
+                        1967
+                    </span>
+                    <h2 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-tight">Título</h2>
+                    <p id="modalSubtitle" class="text-xs sm:text-sm text-amber-600 dark:text-amber-400 font-semibold mt-0.5">Subtítulo</p>
+                </div>
+                <button onclick="closeModal()" aria-label="Fechar janela" class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-amber-500 hover:text-slate-950 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="overflow-y-auto my-2 space-y-4 pr-1">
+                <div class="bg-slate-100 dark:bg-slate-950/80 p-4.5 rounded-2xl border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs sm:text-sm leading-relaxed">
+                    <p id="modalText">Texto explicativo...</p>
+                </div>
+
+                <!-- Controles de Narração de Voz (Web Speech API) -->
+                <div class="bg-amber-500/10 dark:bg-amber-950/40 p-4 rounded-2xl border border-amber-500/40">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-extrabold text-amber-700 dark:text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-volume-high text-amber-500"></i> Narração em Voz Alta
+                        </span>
+                        <div id="voiceWave" class="flex items-end gap-1 h-5 opacity-30 transition-opacity">
+                            <div class="w-1 bg-amber-500 rounded-full wave-bar"></div>
+                            <div class="w-1 bg-amber-500 rounded-full wave-bar"></div>
+                            <div class="w-1 bg-amber-500 rounded-full wave-bar"></div>
+                            <div class="w-1 bg-amber-500 rounded-full wave-bar"></div>
+                            <div class="w-1 bg-amber-500 rounded-full wave-bar"></div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-700 dark:text-slate-300 mb-3">Ouça a história lida pelo sintetizador do navegador:</p>
+
+                    <div class="flex items-center gap-2">
+                        <button id="btnPlaySpeech" onclick="toggleSpeech()" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all">
+                            <i id="speechIcon" class="fa-solid fa-play"></i>
+                            <span id="speechBtnText">Ouvir Narração</span>
+                        </button>
+                        <button id="btnStopSpeech" onclick="stopSpeech()" class="hidden py-3 px-4 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1 transition-all">
+                            <i class="fa-solid fa-stop"></i> Parar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                <span>Dra. Eliza Maria (1944–2025)</span>
+                <button onclick="closeModal()" class="text-amber-600 dark:text-amber-400 font-bold hover:underline">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: SIMULADOR INTERATIVO "ÁLGEBRAS NÃO-ASSOCIATIVAS" -->
+    <div id="simulatorModal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/90 backdrop-blur-md hidden overflow-y-auto py-6">
+        <div class="absolute inset-0" onclick="closeSimulatorModal()"></div>
+        <div class="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-amber-500/60 rounded-3xl p-6 shadow-2xl z-10 animate-modal my-auto transition-colors">
+            <button onclick="closeSimulatorModal()" aria-label="Fechar Simulador" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-extrabold mb-3">
+                <i class="fa-solid fa-cubes text-amber-500"></i> Simulador Visual Didático
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2">
+                O que é Álgebra Não-Associativa?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-5">
+                Na matemática comum da escola, a ordem dos parênteses não muda a soma: (2 + 3) + 4 = 2 + (3 + 4) = 9. 
+                Porém, nas <strong>Álgebras Não-Associativas</strong> que Dra. Eliza estudou na França, <strong>a ordem de agrupar os números muda TUDO!</strong>
+            </p>
+
+            <!-- Teste Interativo de Operação Não-Associativa -->
+            <div class="bg-slate-100 dark:bg-slate-950 p-4 rounded-2xl border border-amber-500/30 mb-5">
+                <span class="text-xs font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-widest block mb-2">
+                    Regra da Operação Especial <span class="bg-amber-500/20 px-2 py-0.5 rounded">A ★ B = (A × 2) + B</span>
+                </span>
+                
+                <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">
+                    Altere os números de A, B e C e compare os resultados ao colocar os parênteses à esquerda ou à direita:
+                </p>
+
+                <!-- Inputs de Números -->
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                    <div>
+                        <label class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block mb-1">Valor de A</label>
+                        <input type="number" id="simValA" value="3" min="1" max="10" onchange="runSimCalculation()" class="w-full text-center font-bold px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block mb-1">Valor de B</label>
+                        <input type="number" id="simValB" value="2" min="1" max="10" onchange="runSimCalculation()" class="w-full text-center font-bold px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block mb-1">Valor de C</label>
+                        <input type="number" id="simValC" value="4" min="1" max="10" onchange="runSimCalculation()" class="w-full text-center font-bold px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white">
+                    </div>
+                </div>
+
+                <!-- Comparação de Resultados Animada -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/40 text-left">
+                        <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block">Agrupando à Esquerda:</span>
+                        <div class="font-mono text-xs sm:text-sm font-black text-amber-600 dark:text-amber-300 mt-1">
+                            (A ★ B) ★ C
+                        </div>
+                        <div id="simResLeft" class="text-lg font-black text-slate-900 dark:text-white mt-2">
+                            = 20
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/40 text-left">
+                        <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block">Agrupando à Direita:</span>
+                        <div class="font-mono text-xs sm:text-sm font-black text-purple-600 dark:text-purple-300 mt-1">
+                            A ★ (B ★ C)
+                        </div>
+                        <div id="simResRight" class="text-lg font-black text-slate-900 dark:text-white mt-2">
+                            = 14
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Veredito -->
+                <div id="simVerdict" class="mt-4 p-3 rounded-xl bg-amber-500/20 text-amber-800 dark:text-amber-300 text-center text-xs font-black border border-amber-500/40">
+                    20 ≠ 14 ➔ NÃO É ASSOCIATIVO! A ordem dos grupos alterou o resultado final!
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-500 dark:text-slate-400 text-center">
+                Dra. Eliza usou essa área da matemática para resolver estruturas complexas de física quântica e geometria moderna.
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL 3: ABA PEDAGÓGICA PARA PROFESSORES (ALINHAMENTO BNCC) -->
+    <div id="pedagogicalModal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/90 backdrop-blur-md hidden overflow-y-auto py-6">
+        <div class="absolute inset-0" onclick="closePedagogicalModal()"></div>
+        <div class="relative w-full max-w-2xl bg-white dark:bg-slate-900 border-2 border-purple-500/60 rounded-3xl p-6 shadow-2xl z-10 animate-modal my-auto transition-colors">
+            <button onclick="closePedagogicalModal()" aria-label="Fechar Guia Pedagógico" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-300 text-xs font-extrabold mb-3 border border-purple-500/40">
+                <i class="fa-solid fa-graduation-cap text-purple-500"></i> Ficha Pedagógica e Curricular (BNCC)
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2">
+                Guia para Educadores e Professores
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-5">
+                Esta estação foi projetada como recurso didático multidisciplinar alinhado às diretrizes da BNCC e à Lei nº 10.639/03.
+            </p>
+
+            <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+                <!-- Alinhamento BNCC -->
+                <div class="bg-purple-500/10 p-4 rounded-2xl border border-purple-500/30">
+                    <h4 class="text-xs font-extrabold text-purple-700 dark:text-purple-300 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-bookmark"></i> Competências Gerais da BNCC
+                    </h4>
+                    <ul class="text-xs text-slate-700 dark:text-slate-300 space-y-1.5 list-disc pl-4">
+                        <li><strong>CG3 (Repertório Cultural):</strong> Valorizar e fruir as diversas manifestações artísticas e culturais, bem como participar de práticas diversificadas da produção científico-cultural.</li>
+                        <li><strong>CG9 (Empatia e Cooperação):</strong> Exercitar a empatia, o diálogo, a resolução de conflitos e a cooperação, fazendo-se respeitar e promovendo o respeito ao outro e aos direitos humanos.</li>
+                        <li><strong>Lei 10.639/03:</strong> Ensino da História e Cultura Afro-Brasileira, valorizando o protagonismo negro na produção científica nacional.</li>
+                    </ul>
+                </div>
+
+                <!-- 3 Planos de Aula Práticos -->
+                <div class="bg-slate-100 dark:bg-slate-950 p-4 rounded-2xl border border-slate-300 dark:border-slate-800">
+                    <h4 class="text-xs font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                        <i class="fa-solid fa-lightbulb"></i> 3 Sugestões de Planos de Aula Práticos
+                    </h4>
+
+                    <div class="space-y-3 text-xs text-slate-800 dark:text-slate-200">
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <span class="font-bold text-amber-600 dark:text-amber-400 block">1. A Cor das Exatas (Debate Multidisciplinar)</span>
+                            Pesquisa guiada sobre cientistas negros e negras no Brasil e produção de murais biográficos na escola.
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <span class="font-bold text-amber-600 dark:text-amber-400 block">2. Desmistificando Álgebras Não-Associativas</span>
+                            Atividade prática com ordem de operações e parênteses no Ensino Fundamental II e Médio usando o simulador visual.
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <span class="font-bold text-amber-600 dark:text-amber-400 block">3. Linhas do Tempo Históricas & Memória Viva</span>
+                            Criação de podcasts curtos ou leituras narradas inspiradas na síntese de voz da estação.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questões para Reflexão em Sala -->
+                <div class="bg-amber-500/10 p-4 rounded-2xl border border-amber-500/30 text-xs">
+                    <h4 class="text-xs font-extrabold text-amber-700 dark:text-amber-300 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-comments"></i> Perguntas para Reflexão em Sala de Aula
+                    </h4>
+                    <ul class="text-slate-700 dark:text-slate-300 space-y-1.5 list-disc pl-4">
+                        <li>Quantos cientistas negros você encontrou nos seus livros de matemática este ano?</li>
+                        <li>Quais foram as principais barreiras enfrentadas pela Dra. Eliza em 1967 ao se formar na UFBA?</li>
+                        <li>De que forma programas de iniciação científica podem incentivar novos jovens negros nas ciências exatas?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: MINI-QUIZ -->
+    <div id="quizModal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/90 backdrop-blur-md hidden">
+        <div class="absolute inset-0" onclick="closeQuizModal()"></div>
+        <div class="relative w-full max-w-md bg-white dark:bg-slate-900 border-2 border-amber-500/50 rounded-3xl p-6 shadow-2xl z-10 animate-modal transition-colors">
+            <button onclick="closeQuizModal()" aria-label="Fechar Quiz" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-4">
+                <span id="quizStepText" class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-widest">Pergunta 1 de 3</span>
+                <h3 id="quizQuestion" class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mt-1">Pergunta do Quiz</h3>
+            </div>
+
+            <!-- Opções do Quiz -->
+            <div id="quizOptions" class="space-y-2.5 mb-5">
+                <!-- Inserido dinamicamente -->
+            </div>
+
+            <div id="quizFeedback" class="hidden p-3 rounded-xl text-center text-xs font-bold mb-4"></div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800">
+                <span class="text-xs text-slate-600 dark:text-slate-400 font-semibold" id="quizScoreText">Pontuação: 0</span>
+                <button id="btnNextQuiz" onclick="nextQuestion()" class="hidden px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs hover:bg-amber-400">
+                    Próxima <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: CRACHÁ DIGITAL (PNG, WHATSAPP, PDF E QR CODE) -->
+    <div id="badgeModal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/90 backdrop-blur-md hidden overflow-y-auto py-6">
+        <div class="absolute inset-0" onclick="closeBadgeModal()"></div>
+        <div class="relative w-full max-w-md bg-white dark:bg-slate-900 border-2 border-amber-500/50 rounded-3xl p-5 sm:p-6 shadow-2xl z-10 animate-modal text-center my-auto transition-colors">
+            <button onclick="closeBadgeModal()" aria-label="Fechar Crachá" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Gerar Crachá Digital</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 mb-4">Digite seu nome para emitir seu certificado com QR Code incorporado:</p>
+
+            <div class="mb-4">
+                <input type="text" id="visitorNameInput" placeholder="Digite seu nome completo..." class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-xs sm:text-sm focus:border-amber-500 outline-none">
+            </div>
+
+            <!-- Alternar se deseja QR Code no Crachá -->
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <input type="checkbox" id="includeQRCheck" checked class="w-4 h-4 accent-amber-500 rounded cursor-pointer">
+                <label for="includeQRCheck" class="text-xs text-slate-700 dark:text-slate-300 font-semibold cursor-pointer select-none">
+                    Incluir QR Code no Crachá para verificação
+                </label>
+            </div>
+
+            <button onclick="generateBadge()" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-extrabold text-xs sm:text-sm shadow-md hover:brightness-110 active:scale-95 transition-all mb-4">
+                <i class="fa-solid fa-award"></i> Criar / Atualizar Meu Crachá
+            </button>
+
+            <!-- Previsualização Visual do Crachá (Área de Impressão) -->
+            <div id="badgePreviewCard" class="hidden p-5 rounded-2xl bg-gradient-to-br from-amber-950 via-slate-900 to-amber-900 border-2 border-amber-400 text-center shadow-xl relative overflow-hidden mb-4 text-white">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-slate-950 font-black flex items-center justify-center mx-auto mb-2 text-xl shadow-lg">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <span class="text-[10px] font-extrabold uppercase tracking-widest text-amber-300 block">Certificado de Participação</span>
+                <h4 id="badgeVisitorName" class="text-lg font-extrabold text-white my-1">Nome do Visitante</h4>
+                <p class="text-xs text-amber-200 font-serif italic mb-2">"Guardião da Memória na Ciência"</p>
+                
+                <div id="badgeCardQRWrapper" class="my-2 bg-white p-2 rounded-xl inline-block shadow-inner">
+                    <img id="badgeCardQRImg" src="" alt="QR Code" class="w-20 h-20 mx-auto block">
+                </div>
+
+                <div class="text-[10px] text-slate-300 border-t border-amber-500/30 pt-2 font-mono">
+                    Feira Escolar do Dia da Consciência Negra • Estação Dra. Eliza Maria
+                </div>
+            </div>
+
+            <!-- Botões de Ação para o Crachá -->
+            <div id="badgeActionsArea" class="hidden space-y-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <button onclick="downloadBadgePNG()" class="w-full py-2.5 px-3 rounded-xl bg-amber-500 text-slate-950 font-extrabold text-xs flex items-center justify-center gap-1.5 shadow hover:bg-amber-400 active:scale-95 transition-all">
+                        <i class="fa-solid fa-download"></i> Baixar Foto (PNG)
+                    </button>
+                    <button onclick="shareBadgeDirectly()" class="w-full py-2.5 px-3 rounded-xl bg-emerald-600 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow hover:bg-emerald-500 active:scale-95 transition-all">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Compartilhar
+                    </button>
+                </div>
+                <button onclick="printBadgePDF()" class="w-full py-2.5 px-3 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-slate-300 dark:hover:bg-slate-700 active:scale-95 transition-all">
+                    <i class="fa-solid fa-print text-amber-500"></i> Imprimir / Salvar PDF Limpo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 6: QR CODE EM ALTA RESOLUÇÃO PARA PROJEÇÃO EM SMART TV -->
+    <div id="qrModal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/90 backdrop-blur-md hidden">
+        <div class="absolute inset-0" onclick="toggleQRCodeModal()"></div>
+        <div class="relative w-full max-w-lg bg-white dark:bg-slate-900 border-4 border-amber-500 rounded-3xl p-6 text-center shadow-2xl z-10 animate-modal transition-colors">
+            <button onclick="toggleQRCodeModal()" aria-label="Fechar QR Code" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-extrabold mb-3">
+                <i class="fa-solid fa-tv text-amber-500"></i> Modo Feira • Projeção na TV
+            </div>
+            
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-1">Aponte a câmera do celular</h3>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mb-4 font-medium">Escaneie o QR Code abaixo para abrir este aplicativo interativo direto no seu aparelho:</p>
+
+            <div class="bg-white p-4 rounded-3xl inline-block shadow-2xl border-4 border-amber-400 mb-4">
+                <img id="qrCodeImg" src="" alt="QR Code da Estação para TV" class="w-64 h-64 sm:w-72 sm:h-72 mx-auto block">
+            </div>
+
+            <p class="text-xs font-bold text-amber-600 dark:text-amber-400 mb-3">
+                <i class="fa-solid fa-sparkles mr-1"></i> Aponte seu celular mesmo à distância!
+            </p>
+
+            <p class="text-xs text-slate-600 dark:text-slate-300 font-mono break-all px-3 py-2 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-300 dark:border-slate-800" id="qrUrlText">
+                https://estacao-eliza-maria.github.io
+            </p>
+        </div>
+    </div>
+
+    <!-- NOTIFICAÇÃO TOAST -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-amber-500 text-slate-950 font-extrabold px-5 py-3 rounded-full shadow-2xl text-xs flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span id="toastMessage">Mensagem</span>
+    </div>
+
+    <!-- WIDGET OFICIAL DE LIBRAS (VLIBRAS GOV.BR) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- SCRIPT DE LÓGICA E INTERATIVIDADE COMPLETA -->
+    <script>
+        // DADOS COMPLETOS DOS 4 MARCOS DA LINHA DO TEMPO
+        const timelineData = [
+            {
+                year: "1967",
+                icon: "fa-graduation-cap",
+                badge: "Graduação UFBA",
+                title: "Graduação e Barreiras Iniciais",
+                subtitle: "Salvador, Bahia (1967)",
+                text: "Formou-se em Matemática pela Universidade Federal da Bahia em 1967. Em um período de acesso extremamente restrito para negros e mulheres na universidade, Eliza se destacou nas estruturas algébricas abstratas.",
+                narrationText: "Em 1967, Eliza Maria marcava seu nome na história da UFBA ao se formar em Matemática. Em um país com pouca representatividade negra nas universidades, ela abriu o primeiro de muitos caminhos na ciência."
+            },
+            {
+                year: "1977",
+                icon: "fa-earth-americas",
+                badge: "Doutorado França",
+                title: "Primeira Doutora Negra em Matemática",
+                subtitle: "Universidade de Montpellier, França (1977)",
+                text: "Obteve seu Doutorado na França com uma tese pioneira sobre Álgebras Não-Associativas. Com essa conquista, tornou-se oficialmente a primeira mulher negra brasileira doutora em Matemática.",
+                narrationText: "Cruzando o oceano, Dra. Eliza defendeu sua tese sobre álgebras não-associativas na França em 1977. Com esse título, ela quebrou um teto de vidro e se tornou a primeira mulher negra doutora em matemática do Brasil."
+            },
+            {
+                year: "1984–1988",
+                icon: "fa-chalkboard-user",
+                badge: "Liderança UFBA",
+                title: "Docência e Liderança Acadêmica",
+                subtitle: "Instituto de Matemática e Estatística da UFBA",
+                text: "Tornou-se a primeira docente negra com doutorado no IME-UFBA. Entre 1984 e 1988, exerceu o cargo de Vice-Diretora do instituto, liderando pesquisas e formando gerações de estudantes.",
+                narrationText: "De volta à Bahia, Eliza não apenas lecionou, mas assumiu a vice-diretoria do IME-UFBA. Ela provou que o lugar da mulher negra é na pesquisa, na docência e nos cargos de liderança."
+            },
+            {
+                year: "2025+",
+                icon: "fa-infinity",
+                badge: "Legado Vivo",
+                title: "Memória Viva na Ciência",
+                subtitle: "Programa de Iniciação Científica Eliza Maria",
+                text: "Falecida em 2025, o IME-UFBA batizou seu programa de iniciação científica com o seu nome em sua homenagem, garantindo que novos jovens pretos e pardos sigam seus passos.",
+                narrationText: "Dra. Eliza nos deixou em 2025, mas sua memória continua viva. Hoje, programas de incentivo científico levam seu nome para que novos jovens negros também descubram a força das exatas."
+            }
+        ];
+
+        // DADOS DO QUIZ DIDÁTICO
+        const quizData = [
+            {
+                question: "Em qual universidade Dra. Eliza graduou-se em Matemática no ano de 1967?",
+                options: ["Universidade Federal da Bahia (UFBA)", "Universidade de São Paulo (USP)", "Universidade Federal do Rio de Janeiro (UFRJ)"],
+                correct: 0
+            },
+            {
+                question: "Em qual país Dra. Eliza concluiu seu Doutorado em 1977?",
+                options: ["Estados Unidos", "França", "Inglaterra"],
+                correct: 1
+            },
+            {
+                question: "Qual foi o feito histórico da Dra. Eliza Maria para a ciência brasileira?",
+                options: ["Criar o primeiro computador baiano", "Tornar-se a 1ª mulher negra doutora em Matemática do Brasil", "Ganhar o Prêmio Nobel de Física"],
+                correct: 1
+            }
+        ];
+
+        // ESTADOS DA APLICAÇÃO
+        let visitedMilestones = [false, false, false, false];
+        let currentActiveIndex = null;
+        let speechUtterance = null;
+        let isSpeaking = false;
+        let isPaused = false;
+        let fontScalePercent = 100;
+        let isHighContrast = false;
+        let isTVLayout = false;
+        let autoPlayTimer = null;
+        let isAutoPlayActive = false;
+        
+        let quizCurrentStep = 0;
+        let quizScore = 0;
+
+        // EFEITOS SONOROS SINTETIZADOS NATIVOS (WEB AUDIO API)
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSoundEffect(type) {
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(587, now);
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'correct') {
+                    [523, 659, 783, 1046].forEach((freq, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.type = 'triangle';
+                        o.frequency.setValueAtTime(freq, now + idx * 0.06);
+                        g.connect(audioCtx.destination);
+                        o.connect(g);
+                        g.gain.setValueAtTime(0.15, now + idx * 0.06);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.25);
+                        o.start(now + idx * 0.06);
+                        o.stop(now + idx * 0.06 + 0.25);
+                    });
+                }
+            } catch (e) {}
+        }
+
+        // ==========================================
+        // SINTETIZADOR DE TRILHA LO-FI SYNTH AMBIENT (WEB AUDIO API)
+        // ==========================================
+        let ambientAudioCtx = null;
+        let isAmbientPlaying = false;
+        let ambientGainNode = null;
+        let ambientFilterNode = null;
+        let ambientLfo = null;
+        let vinylNode = null;
+        let currentChordOscs = [];
+        let ambientInterval = null;
+
+        const loFiChords = [
+            [130.81, 164.81, 196.00, 246.94], // Cmaj7
+            [110.00, 130.81, 164.81, 196.00], // Am7
+            [87.31,  130.81, 174.61, 220.00], // Fmaj7
+            [98.00,  123.47, 146.83, 174.61]  // G7
+        ];
+        let currentChordIndex = 0;
+
+        function toggleAmbientMusic() {
+            playSoundEffect('click');
+            if (!ambientAudioCtx) {
+                ambientAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (ambientAudioCtx.state === 'suspended') {
+                ambientAudioCtx.resume();
+            }
+
+            if (isAmbientPlaying) {
+                stopAmbientMusic();
+            } else {
+                startAmbientMusic();
+            }
+        }
+
+        function startAmbientMusic() {
+            isAmbientPlaying = true;
+            const btn = document.getElementById('ambientMusicBtn');
+            if (btn) {
+                btn.className = "px-2.5 h-8 rounded-xl bg-indigo-600 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md";
+                btn.innerHTML = `<i class="fa-solid fa-volume-high text-xs animate-pulse"></i><span class="hidden md:inline">Trilha On</span>`;
+            }
+
+            ambientGainNode = ambientAudioCtx.createGain();
+            ambientGainNode.gain.setValueAtTime(0.01, ambientAudioCtx.currentTime);
+            ambientGainNode.gain.linearRampToValueAtTime(0.18, ambientAudioCtx.currentTime + 3);
+
+            ambientFilterNode = ambientAudioCtx.createBiquadFilter();
+            ambientFilterNode.type = 'lowpass';
+            ambientFilterNode.frequency.setValueAtTime(420, ambientAudioCtx.currentTime);
+
+            ambientLfo = ambientAudioCtx.createOscillator();
+            ambientLfo.frequency.setValueAtTime(0.15, ambientAudioCtx.currentTime);
+            const lfoGain = ambientAudioCtx.createGain();
+            lfoGain.gain.setValueAtTime(120, ambientAudioCtx.currentTime);
+            ambientLfo.connect(lfoGain);
+            lfoGain.connect(ambientFilterNode.frequency);
+            ambientLfo.start();
+
+            ambientFilterNode.connect(ambientGainNode);
+            ambientGainNode.connect(ambientAudioCtx.destination);
+
+            startVinylNoise();
+            playNextAmbientChord();
+
+            ambientInterval = setInterval(() => {
+                playNextAmbientChord();
+            }, 6000);
+
+            showToast("Música Lo-Fi de Foco Ativada 🎵");
+        }
+
+        function startVinylNoise() {
+            const bufferSize = ambientAudioCtx.sampleRate * 2;
+            const noiseBuffer = ambientAudioCtx.createBuffer(1, bufferSize, ambientAudioCtx.sampleRate);
+            const output = noiseBuffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                const white = Math.random() * 2 - 1;
+                const pop = Math.random() > 0.998 ? (Math.random() * 2 - 1) * 3 : 0;
+                output[i] = (white * 0.05 + pop) * 0.08;
+            }
+
+            vinylNode = ambientAudioCtx.createBufferSource();
+            vinylNode.buffer = noiseBuffer;
+            vinylNode.loop = true;
+
+            const vinylFilter = ambientAudioCtx.createBiquadFilter();
+            vinylFilter.type = 'bandpass';
+            vinylFilter.frequency.setValueAtTime(1000, ambientAudioCtx.currentTime);
+            vinylFilter.Q.setValueAtTime(0.8, ambientAudioCtx.currentTime);
+
+            const vinylGain = ambientAudioCtx.createGain();
+            vinylGain.gain.setValueAtTime(0.025, ambientAudioCtx.currentTime);
+
+            vinylNode.connect(vinylFilter);
+            vinylFilter.connect(vinylGain);
+            vinylGain.connect(ambientGainNode);
+            vinylNode.start();
+        }
+
+        function playNextAmbientChord() {
+            if (!isAmbientPlaying || !ambientAudioCtx) return;
+
+            const now = ambientAudioCtx.currentTime;
+            const freqs = loFiChords[currentChordIndex];
+            currentChordIndex = (currentChordIndex + 1) % loFiChords.length;
+
+            const oldOscs = [...currentChordOscs];
+            currentChordOscs = [];
+
+            oldOscs.forEach(({ osc, gain }) => {
+                gain.gain.setValueAtTime(gain.gain.value, now);
+                gain.gain.linearRampToValueAtTime(0.0001, now + 2.5);
+                setTimeout(() => {
+                    try { osc.stop(); osc.disconnect(); } catch (e) {}
+                }, 2600);
+            });
+
+            freqs.forEach((freq, idx) => {
+                const osc = ambientAudioCtx.createOscillator();
+                const osc2 = ambientAudioCtx.createOscillator();
+                const chordGain = ambientAudioCtx.createGain();
+
+                osc.type = idx === 0 ? 'sine' : 'triangle';
+                osc2.type = 'sine';
+
+                const detuneAmount = (Math.random() - 0.5) * 4;
+                osc.frequency.setValueAtTime(freq, now);
+                osc2.frequency.setValueAtTime(freq * 1.0015, now);
+                osc.detune.setValueAtTime(detuneAmount, now);
+
+                chordGain.gain.setValueAtTime(0.0001, now);
+                chordGain.gain.linearRampToValueAtTime(0.06, now + 2.5);
+                chordGain.gain.linearRampToValueAtTime(0.03, now + 5.5);
+
+                osc.connect(chordGain);
+                osc2.connect(chordGain);
+                chordGain.connect(ambientFilterNode);
+
+                osc.start(now);
+                osc2.start(now);
+
+                currentChordOscs.push({ osc, gain: chordGain }, { osc: osc2, gain: chordGain });
+            });
+        }
+
+        function stopAmbientMusic() {
+            isAmbientPlaying = false;
+            const btn = document.getElementById('ambientMusicBtn');
+            if (btn) {
+                btn.className = "px-2.5 h-8 rounded-xl bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40 hover:bg-indigo-600 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all";
+                btn.innerHTML = `<i class="fa-solid fa-music text-xs"></i><span class="hidden md:inline">Trilha Ambient</span>`;
+            }
+
+            if (ambientInterval) clearInterval(ambientInterval);
+
+            if (ambientGainNode && ambientAudioCtx) {
+                const now = ambientAudioCtx.currentTime;
+                ambientGainNode.gain.setValueAtTime(ambientGainNode.gain.value, now);
+                ambientGainNode.gain.linearRampToValueAtTime(0.0001, now + 1.5);
+                setTimeout(() => {
+                    currentChordOscs.forEach(({ osc }) => { try { osc.stop(); } catch(e){} });
+                    currentChordOscs = [];
+                    if (vinylNode) { try { vinylNode.stop(); } catch(e){} }
+                    if (ambientLfo) { try { ambientLfo.stop(); } catch(e){} }
+                }, 1600);
+            }
+            showToast("Música Lo-Fi Pausada");
+        }
+
+        // INICIALIZAÇÃO DA PÁGINA
+        window.addEventListener('DOMContentLoaded', () => {
+            setupQRCode();
+            initMathCanvas();
+            runSimCalculation();
+        });
+
+        // CANVAS ANIMADO DE PARTÍCULAS MATEMÁTICAS
+        function initMathCanvas() {
+            const canvas = document.getElementById('mathCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const symbols = ['∑', '∫', 'π', '∞', '√', 'A=πr²', 'f(x)', '∂x', 'λ', 'θ'];
+            const particles = [];
+            const numParticles = Math.min(Math.floor(window.innerWidth / 25), 32);
+
+            for (let i = 0; i < numParticles; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    symbol: symbols[Math.floor(Math.random() * symbols.length)],
+                    size: Math.random() * 18 + 14,
+                    speedY: Math.random() * -0.4 - 0.1,
+                    speedX: (Math.random() - 0.5) * 0.2,
+                    opacity: Math.random() * 0.35 + 0.1,
+                    rotation: Math.random() * Math.PI * 2,
+                    rotSpeed: (Math.random() - 0.5) * 0.01
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const isDark = document.documentElement.classList.contains('dark');
+                
+                particles.forEach(p => {
+                    p.y += p.speedY;
+                    p.x += p.speedX;
+                    p.rotation += p.rotSpeed;
+
+                    if (p.y < -30) {
+                        p.y = canvas.height + 30;
+                        p.x = Math.random() * canvas.width;
+                    }
+
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation);
+                    ctx.font = `bold ${p.size}px 'Playfair Display', serif`;
+                    ctx.fillStyle = isDark 
+                        ? `rgba(245, 158, 11, ${p.opacity})`
+                        : `rgba(180, 83, 9, ${p.opacity * 0.8})`;
+                    ctx.fillText(p.symbol, 0, 0);
+                    ctx.restore();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // LÓGICA DO SIMULADOR "ÁLGEBRAS NÃO-ASSOCIATIVAS"
+        function openSimulatorModal() {
+            playSoundEffect('click');
+            runSimCalculation();
+            document.getElementById('simulatorModal').classList.remove('hidden');
+        }
+
+        function closeSimulatorModal() {
+            document.getElementById('simulatorModal').classList.add('hidden');
+        }
+
+        function runSimCalculation() {
+            const a = parseInt(document.getElementById('simValA').value) || 3;
+            const b = parseInt(document.getElementById('simValB').value) || 2;
+            const c = parseInt(document.getElementById('simValC').value) || 4;
+
+            const op = (x, y) => (x * 2) + y;
+
+            const stepLeft1 = op(a, b);
+            const resLeft = op(stepLeft1, c);
+
+            const stepRight1 = op(b, c);
+            const resRight = op(a, stepRight1);
+
+            document.getElementById('simResLeft').innerHTML = `= ${resLeft} <span class="text-xs text-slate-400 font-normal block">Passos: (${a}★${b})=${stepLeft1} ➔ ${stepLeft1}★${c}=${resLeft}</span>`;
+            document.getElementById('simResRight').innerHTML = `= ${resRight} <span class="text-xs text-slate-400 font-normal block">Passos: (${b}★${c})=${stepRight1} ➔ ${a}★${stepRight1}=${resRight}</span>`;
+
+            const verdict = document.getElementById('simVerdict');
+            if (resLeft !== resRight) {
+                verdict.className = "mt-4 p-3 rounded-xl bg-amber-500/20 text-amber-800 dark:text-amber-300 text-center text-xs font-black border border-amber-500/40";
+                verdict.textContent = `⚡ ${resLeft} ≠ ${resRight} ➔ NÃO-ASSOCIATIVO! A mudança de parênteses alterou o resultado!`;
+            } else {
+                verdict.className = "mt-4 p-3 rounded-xl bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-center text-xs font-black border border-emerald-500/40";
+                verdict.textContent = `= Os resultados coincidiram neste caso raro, mas a estrutura continua sendo Não-Associativa!`;
+            }
+        }
+
+        // LÓGICA DO MODO QUIOSQUE AUTO-PLAY TV (15 SEGUNDOS POR MARCO)
+        function toggleAutoPlayTV() {
+            playSoundEffect('click');
+            if (isAutoPlayActive) {
+                stopAutoPlayTV();
+            } else {
+                startAutoPlayTV();
+            }
+        }
+
+        function startAutoPlayTV() {
+            isAutoPlayActive = true;
+            document.getElementById('tvAutoPlayBanner').classList.remove('hidden');
+            showToast("Modo Apresentação TV Ativado!");
+
+            let autoIndex = 0;
+            openModal(autoIndex);
+            setTimeout(() => { toggleSpeech(); }, 800);
+
+            autoPlayTimer = setInterval(() => {
+                autoIndex = (autoIndex + 1) % timelineData.length;
+                openModal(autoIndex);
+                setTimeout(() => { toggleSpeech(); }, 800);
+            }, 15000);
+        }
+
+        function stopAutoPlayTV() {
+            isAutoPlayActive = false;
+            if (autoPlayTimer) clearInterval(autoPlayTimer);
+            document.getElementById('tvAutoPlayBanner').classList.add('hidden');
+            stopSpeech();
+            showToast("Modo Apresentação TV Desativado");
+        }
+
+        // ABA PEDAGÓGICA PARA PROFESSORES
+        function openPedagogicalModal() {
+            playSoundEffect('click');
+            document.getElementById('pedagogicalModal').classList.remove('hidden');
+        }
+
+        function closePedagogicalModal() {
+            document.getElementById('pedagogicalModal').classList.add('hidden');
+        }
+
+        // TELA CHEIA (FULLSCREEN KIOSK)
+        function toggleFullScreen() {
+            playSoundEffect('click');
+            const icon = document.getElementById('fsIcon');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    icon.className = "fa-solid fa-compress text-xs";
+                    showToast("Modo Tela Cheia Ativado!");
+                }).catch(() => {
+                    showToast("Modo Tela Cheia não suportado neste navegador.");
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen().then(() => {
+                        icon.className = "fa-solid fa-expand text-xs";
+                    });
+                }
+            }
+        }
+
+        // ALTERNAR MODO TV / PROJEÇÃO HORIZONTAL EM GRID DE 4 COLUNAS
+        function toggleTVLayout() {
+            playSoundEffect('click');
+            isTVLayout = !isTVLayout;
+            const container = document.getElementById('timelineContainer');
+            const line = document.getElementById('verticalLine');
+            const text = document.getElementById('tvModeText');
+
+            if (isTVLayout) {
+                line.classList.add('hidden');
+                container.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-300";
+                text.textContent = "Modo Lista";
+                
+                document.querySelectorAll('.timeline-item').forEach(item => {
+                    item.className = "timeline-item group cursor-pointer flex flex-col items-center text-center gap-3 transition-all duration-300 active:scale-[0.98]";
+                });
+                showToast("Modo Grid TV Ativado!");
+            } else {
+                line.classList.remove('hidden');
+                container.className = "space-y-5 lg:space-y-0 relative transition-all duration-300";
+                text.textContent = "Grid TV";
+                
+                document.querySelectorAll('.timeline-item').forEach(item => {
+                    item.className = "timeline-item group cursor-pointer flex items-start gap-3 sm:gap-5 transition-all duration-300 active:scale-[0.98]";
+                });
+                showToast("Modo Lista Restaurado");
+            }
+        }
+
+        // PROGRESSO DO VISITANTE NA ESTAÇÃO
+        function markMilestoneVisited(index) {
+            visitedMilestones[index] = true;
+            const visitedCount = visitedMilestones.filter(Boolean).length;
+            const percentage = (visitedCount / 4) * 100;
+
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `${visitedCount} / 4 Marcos Visitados`;
+
+            const badgeStatus = document.getElementById(`badge-status-${index}`);
+            if (badgeStatus) {
+                badgeStatus.className = "text-[10px] bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full font-bold border border-amber-500/40";
+                badgeStatus.textContent = "Concluído ✓";
+            }
+
+            if (visitedCount === 4) {
+                document.getElementById('progressHint').textContent = "🎉 Você explorou 100% da linha do tempo! Emita seu Crachá Digital!";
+            }
+        }
+
+        // CONTROLE DE FONTE & ACESSIBILIDADE
+        function changeFontSize(delta) {
+            playSoundEffect('click');
+            fontScalePercent = Math.min(Math.max(fontScalePercent + delta, 85), 140);
+            document.documentElement.style.fontSize = fontScalePercent + '%';
+            showToast(`Tamanho do Texto: ${fontScalePercent}%`);
+        }
+
+        function resetFontSize() {
+            playSoundEffect('click');
+            fontScalePercent = 100;
+            document.documentElement.style.fontSize = '100%';
+            showToast("Texto Restaurado");
+        }
+
+        // MODO DIA (LIGHT MODE) / ESCURO (DARK MODE)
+        function toggleTheme() {
+            playSoundEffect('click');
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                document.body.classList.replace('bg-slate-950', 'bg-slate-100');
+                document.body.classList.replace('text-slate-100', 'text-slate-900');
+                icon.className = "fa-solid fa-sun";
+                text.textContent = "Claro";
+                showToast("Modo Dia (Claro) Ativado");
+            } else {
+                html.classList.add('dark');
+                document.body.classList.replace('bg-slate-100', 'bg-slate-950');
+                document.body.classList.replace('text-slate-900', 'text-slate-100');
+                icon.className = "fa-solid fa-moon";
+                text.textContent = "Escuro";
+                showToast("Modo Escuro Ativado");
+            }
+        }
+
+        function toggleHighContrast() {
+            playSoundEffect('click');
+            isHighContrast = !isHighContrast;
+            document.body.classList.toggle('high-contrast', isHighContrast);
+            showToast(isHighContrast ? "Alto Contraste Ativado" : "Alto Contraste Desativado");
+        }
+
+        // MODAL DOS MARCOS HISTÓRICOS
+        function openModal(index) {
+            playSoundEffect('click');
+            currentActiveIndex = index;
+            markMilestoneVisited(index);
+            const data = timelineData[index];
+
+            document.getElementById('modalBadge').textContent = data.year;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalSubtitle').textContent = data.subtitle;
+            document.getElementById('modalText').textContent = data.text;
+
+            document.getElementById('timelineModal').classList.remove('hidden');
+            stopSpeech();
+        }
+
+        function closeModal() {
+            document.getElementById('timelineModal').classList.add('hidden');
+            stopSpeech();
+        }
+
+        // SÍNTESE DE VOZ NATIVA (WEB SPEECH API)
+        function toggleSpeech() {
+            if (!('speechSynthesis' in window)) {
+                showToast("Seu dispositivo não possui suporte à síntese de voz.");
+                return;
+            }
+
+            const synth = window.speechSynthesis;
+
+            if (isSpeaking && !isPaused) {
+                synth.pause();
+                isPaused = true;
+                updateSpeechUIState('paused');
+                return;
+            }
+
+            if (isPaused) {
+                synth.resume();
+                isPaused = false;
+                isSpeaking = true;
+                updateSpeechUIState('speaking');
+                return;
+            }
+
+            if (currentActiveIndex === null) return;
+            synth.cancel();
+
+            const textToSpeak = timelineData[currentActiveIndex].narrationText;
+            speechUtterance = new SpeechSynthesisUtterance(textToSpeak);
+            speechUtterance.lang = 'pt-BR';
+            speechUtterance.rate = 0.95;
+
+            const voices = synth.getVoices();
+            const ptVoice = voices.find(v => v.lang.includes('pt-BR') || v.lang.includes('pt'));
+            if (ptVoice) speechUtterance.voice = ptVoice;
+
+            speechUtterance.onstart = () => {
+                isSpeaking = true;
+                isPaused = false;
+                updateSpeechUIState('speaking');
+            };
+
+            speechUtterance.onend = () => {
+                isSpeaking = false;
+                isPaused = false;
+                updateSpeechUIState('stopped');
+            };
+
+            speechUtterance.onerror = () => {
+                isSpeaking = false;
+                isPaused = false;
+                updateSpeechUIState('stopped');
+            };
+
+            synth.speak(speechUtterance);
+        }
+
+        function stopSpeech() {
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            isSpeaking = false;
+            isPaused = false;
+            updateSpeechUIState('stopped');
+        }
+
+        function updateSpeechUIState(state) {
+            const icon = document.getElementById('speechIcon');
+            const btnText = document.getElementById('speechBtnText');
+            const btnStop = document.getElementById('btnStopSpeech');
+            const wave = document.getElementById('voiceWave');
+
+            if (state === 'speaking') {
+                icon.className = "fa-solid fa-pause";
+                btnText.textContent = "Pausar Narração";
+                btnStop.classList.remove('hidden');
+                wave.classList.replace('opacity-30', 'opacity-100');
+            } else if (state === 'paused') {
+                icon.className = "fa-solid fa-play";
+                btnText.textContent = "Continuar";
+                btnStop.classList.remove('hidden');
+                wave.classList.replace('opacity-100', 'opacity-30');
+            } else {
+                icon.className = "fa-solid fa-play";
+                btnText.textContent = "Ouvir Narração";
+                btnStop.classList.add('hidden');
+                wave.classList.replace('opacity-100', 'opacity-30');
+            }
+        }
+
+        // LÓGICA DO MINI-QUIZ
+        function openQuizModal() {
+            playSoundEffect('click');
+            quizCurrentStep = 0;
+            quizScore = 0;
+            renderQuizStep();
+            document.getElementById('quizModal').classList.remove('hidden');
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quizModal').classList.add('hidden');
+        }
+
+        function renderQuizStep() {
+            const step = quizData[quizCurrentStep];
+            document.getElementById('quizStepText').textContent = `Pergunta ${quizCurrentStep + 1} de ${quizData.length}`;
+            document.getElementById('quizQuestion').textContent = step.question;
+            document.getElementById('quizScoreText').textContent = `Pontuação: ${quizScore}`;
+            document.getElementById('btnNextQuiz').classList.add('hidden');
+            
+            const feedback = document.getElementById('quizFeedback');
+            feedback.classList.add('hidden');
+
+            const container = document.getElementById('quizOptions');
+            container.innerHTML = '';
+
+            step.options.forEach((option, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium text-xs sm:text-sm border border-slate-300 dark:border-slate-700 hover:border-amber-500 transition-all";
+                btn.textContent = option;
+                btn.onclick = () => checkQuizAnswer(idx, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function checkQuizAnswer(selectedIdx, btnElement) {
+            const step = quizData[quizCurrentStep];
+            const feedback = document.getElementById('quizFeedback');
+            feedback.classList.remove('hidden');
+
+            const allButtons = document.getElementById('quizOptions').children;
+            for (let b of allButtons) b.disabled = true;
+
+            if (selectedIdx === step.correct) {
+                playSoundEffect('correct');
+                quizScore += 10;
+                btnElement.className = "w-full text-left p-3.5 rounded-xl bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border-2 border-emerald-500 font-bold text-xs sm:text-sm";
+                feedback.className = "p-3 rounded-xl text-center text-xs font-bold mb-4 bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40";
+                feedback.textContent = "Resposta Correta! Excelente atenção aos feitos da Dra. Eliza!";
+            } else {
+                btnElement.className = "w-full text-left p-3.5 rounded-xl bg-rose-500/20 text-rose-800 dark:text-rose-300 border-2 border-rose-500 font-bold text-xs sm:text-sm";
+                feedback.className = "p-3 rounded-xl text-center text-xs font-bold mb-4 bg-rose-500/20 text-rose-800 dark:text-rose-300 border border-rose-500/40";
+                feedback.textContent = `A resposta certa era: "${step.options[step.correct]}"`;
+            }
+
+            document.getElementById('quizScoreText').textContent = `Pontuação: ${quizScore}`;
+            document.getElementById('btnNextQuiz').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            playSoundEffect('click');
+            quizCurrentStep++;
+            if (quizCurrentStep < quizData.length) {
+                renderQuizStep();
+            } else {
+                closeQuizModal();
+                showToast(`Quiz concluído! Sua pontuação: ${quizScore} pts`);
+                openBadgeModal();
+            }
+        }
+
+        // CRACHÁ DIGITAL & GERAÇÃO DE IMAGEM / IMPRESSÃO / COMPARTILHAMENTO
+        function openBadgeModal() {
+            playSoundEffect('click');
+            document.getElementById('badgeModal').classList.remove('hidden');
+        }
+
+        function closeBadgeModal() {
+            document.getElementById('badgeModal').classList.add('hidden');
+        }
+
+        function generateBadge() {
+            const input = document.getElementById('visitorNameInput');
+            const name = input.value.trim();
+            if (!name) {
+                showToast("Por favor, digite seu nome!");
+                return;
+            }
+
+            playSoundEffect('correct');
+            document.getElementById('badgeVisitorName').textContent = name;
+            
+            const pageUrl = getPageURL();
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(pageUrl)}&color=090d16&bgcolor=ffffff`;
+            document.getElementById('badgeCardQRImg').src = qrUrl;
+
+            const includeQR = document.getElementById('includeQRCheck').checked;
+            document.getElementById('badgeCardQRWrapper').style.display = includeQR ? 'inline-block' : 'none';
+
+            document.getElementById('badgePreviewCard').classList.remove('hidden');
+            document.getElementById('badgeActionsArea').classList.remove('hidden');
+            showToast("Crachá Digital Gerado!");
+        }
+
+        async function renderBadgeCanvas(name, includeQR = true) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 1550;
+            const ctx = canvas.getContext('2d');
+
+            const grad = ctx.createLinearGradient(0, 0, 1200, 1550);
+            grad.addColorStop(0, '#020617');
+            grad.addColorStop(0.4, '#0f172a');
+            grad.addColorStop(1, '#451a03');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 1200, 1550);
+
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 16;
+            ctx.strokeRect(30, 30, 1140, 1490);
+
+            ctx.strokeStyle = '#d97706';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(50, 50, 1100, 1450);
+
+            ctx.fillStyle = 'rgba(245, 158, 11, 0.08)';
+            ctx.font = 'bold 90px "Playfair Display", serif';
+            ctx.fillText('∑', 100, 240);
+            ctx.fillText('∫', 1020, 280);
+            ctx.fillText('π', 140, 1380);
+            ctx.fillText('∞', 960, 1340);
+            ctx.fillText('√', 990, 700);
+
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#fef3c7';
+            ctx.font = 'bold 32px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('FEIRA ESCOLAR DO DIA DA CONSCIÊNCIA NEGRA', 600, 140);
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 26px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('ESTAÇÃO 1 • LINHA DO TEMPO E MEMÓRIA', 600, 185);
+
+            ctx.beginPath();
+            ctx.arc(600, 340, 85, 0, Math.PI * 2);
+            const circleGrad = ctx.createLinearGradient(515, 255, 685, 425);
+            circleGrad.addColorStop(0, '#fbbf24');
+            circleGrad.addColorStop(1, '#b45309');
+            ctx.fillStyle = circleGrad;
+            ctx.fill();
+            ctx.strokeStyle = '#fef3c7';
+            ctx.lineWidth = 6;
+            ctx.stroke();
+
+            ctx.fillStyle = '#020617';
+            ctx.font = '80px sans-serif';
+            ctx.fillText('🎓', 600, 368);
+
+            ctx.fillStyle = '#cbd5e1';
+            ctx.font = 'bold 30px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('CERTIFICADO DE PARTICIPAÇÃO', 600, 490);
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('RECONHECEMOS QUE', 600, 545);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 60px "Playfair Display", serif';
+            ctx.fillText(name.toUpperCase(), 600, 640);
+
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(350, 680);
+            ctx.lineTo(850, 680);
+            ctx.stroke();
+
+            ctx.fillStyle = '#fde047';
+            ctx.font = 'italic bold 40px "Playfair Display", serif';
+            ctx.fillText('"Guardião da Memória na Ciência"', 600, 750);
+
+            ctx.fillStyle = '#e2e8f0';
+            ctx.font = '28px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Concluiu com êxito a jornada sobre a vida e o legado da', 600, 830);
+
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = 'bold 34px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Dra. Eliza Maria Ferreira Veras da Silva (1944–2025)', 600, 890);
+
+            ctx.fillStyle = '#cbd5e1';
+            ctx.font = '26px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('Primeira mulher negra Doutora em Matemática do Brasil.', 600, 940);
+
+            if (includeQR) {
+                try {
+                    const pageUrl = getPageURL();
+                    const qrImg = new Image();
+                    qrImg.crossOrigin = 'Anonymous';
+                    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(pageUrl)}&color=090d16&bgcolor=ffffff`;
+                    
+                    await new Promise((resolve) => {
+                        qrImg.onload = resolve;
+                        qrImg.onerror = resolve;
+                    });
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.beginPath();
+                    ctx.roundRect(510, 980, 180, 180, 16);
+                    ctx.fill();
+
+                    if (qrImg.complete && qrImg.naturalWidth !== 0) {
+                        ctx.drawImage(qrImg, 520, 990, 160, 160);
+                    }
+                    ctx.fillStyle = '#f59e0b';
+                    ctx.font = 'bold 18px "Plus Jakarta Sans", sans-serif';
+                    ctx.fillText('ESCANEIE PARA VERIFICAR', 600, 1185);
+                } catch (e) {}
+            }
+
+            const boxY = includeQR ? 1210 : 1010;
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.7)';
+            ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(150, boxY, 900, 150, 20);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = '#fef3c7';
+            ctx.font = 'italic 25px "Playfair Display", serif';
+            ctx.fillText('"Representatividade, Ciência e Liderança Negra nas Exatas."', 600, boxY + 65);
+            ctx.font = '22px "Plus Jakarta Sans", sans-serif';
+            ctx.fillStyle = '#94a3b8';
+            ctx.fillText('— Instituto de Matemática e Estatística (IME-UFBA)', 600, boxY + 110);
+
+            const today = new Date().toLocaleDateString('pt-BR');
+            ctx.fillStyle = '#64748b';
+            ctx.font = '22px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(`Emissão: ${today} • Feira da Consciência Negra`, 600, 1430);
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 22px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('A Matemática Tem Cor e História! ✊🏿📐', 600, 1475);
+
+            return canvas;
+        }
+
+        async function downloadBadgePNG() {
+            playSoundEffect('click');
+            const name = document.getElementById('visitorNameInput').value.trim() || "Visitante";
+            const includeQR = document.getElementById('includeQRCheck').checked;
+            
+            showToast("Gerando foto do crachá...");
+            const canvas = await renderBadgeCanvas(name, includeQR);
+
+            const link = document.createElement('a');
+            link.download = `Cracha_ElizaMaria_${name.replace(/\s+/g, '_')}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+            showToast("Imagem PNG salva com sucesso!");
+        }
+
+        async function shareBadgeDirectly() {
+            playSoundEffect('click');
+            const name = document.getElementById('visitorNameInput').value.trim() || "Visitante";
+            const includeQR = document.getElementById('includeQRCheck').checked;
+            
+            showToast("Preparando crachá...");
+            const canvas = await renderBadgeCanvas(name, includeQR);
+
+            canvas.toBlob(async (blob) => {
+                if (!blob) return;
+                const file = new File([blob], `Cracha_ElizaMaria_${name.replace(/\s+/g, '_')}.png`, { type: 'image/png' });
+
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({
+                            files: [file],
+                            title: 'Meu Crachá - Estação Dra. Eliza Maria',
+                            text: `Sou Guardião da Memória da Dra. Eliza Maria, 1ª Doutora Negra em Matemática do Brasil!`
+                        });
+                        showToast("Crachá compartilhado!");
+                    } catch (e) {}
+                } else if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: 'Estação Dra. Eliza Maria',
+                            text: `Certificado de ${name} como Guardião da Memória da Dra. Eliza Maria na Consciência Negra!`,
+                            url: getPageURL()
+                        });
+                        showToast("Link do crachá compartilhado!");
+                    } catch (e) {}
+                } else {
+                    downloadBadgePNG();
+                }
+            }, 'image/png');
+        }
+
+        function printBadgePDF() {
+            playSoundEffect('click');
+            const name = document.getElementById('visitorNameInput').value.trim();
+            if (!name) {
+                showToast("Gere seu crachá antes de imprimir!");
+                return;
+            }
+            showToast("Abrindo tela de impressão/PDF...");
+            setTimeout(() => { window.print(); }, 300);
+        }
+
+        function getPageURL() {
+            return window.location.href.startsWith('http') 
+                ? window.location.href 
+                : 'https://estacao-eliza-maria.github.io';
+        }
+
+        function setupQRCode() {
+            const pageUrl = getPageURL();
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=${encodeURIComponent(pageUrl)}&color=090d16&bgcolor=ffffff`;
+            document.getElementById('qrCodeImg').src = qrApiUrl;
+            document.getElementById('qrUrlText').textContent = pageUrl;
+        }
+
+        function toggleQRCodeModal() {
+            playSoundEffect('click');
+            document.getElementById('qrModal').classList.toggle('hidden');
+        }
+
+        async function shareStation() {
+            playSoundEffect('click');
+            const shareData = {
+                title: 'Estação Dra. Eliza Maria - Consciência Negra',
+                text: 'Conheça a história da 1ª mulher negra doutora em Matemática do Brasil!',
+                url: getPageURL()
+            };
+
+            if (navigator.share) {
+                try { await navigator.share(shareData); } catch (e) {}
+            } else {
+                showToast("Link copiado para a área de transferência!");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2600);
+        }
+    </script>
+</body>
+</html>
